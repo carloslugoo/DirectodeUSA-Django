@@ -1,0 +1,616 @@
+{% extends 'layouts/base.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}Directo de USA {%endblock%}</title>
+    <link rel="stylesheet" href="{%static './css/home.css'%}">
+<body>
+    {%block content%}
+    <style>
+        .custom-font {
+        font-family: 'Lumen', sans-serif;
+        background: linear-gradient(90deg, red, blue);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-fill-color: transparent;
+        display: inline-block;
+        }
+        .custom-line{
+        background: linear-gradient(90deg, red, blue);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-fill-color: transparent;
+        display: inline-block;
+        }
+
+    </style>
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container px-4 px-lg-1"> 
+                    <a class="navbar-brand" href="#!">
+                        <img src="{%static 'assets/logoo.png'%}" width="90px">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">iPhones</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#!">En stock</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                    <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Header-->
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-12 col-sm-8 col-lg-4 mx-auto text-center">
+                    <img src="{% static 'img/heroo.png'%}" class="d-block img-fluid" loading="lazy">
+                </div>
+                <div class="col-lg-8">
+                    <h1 class="display-5 lh-1 mb-3 text-center">¡Empezá el <span class="custom-font">2024</span>, con un iPhone!</h1>
+                </div>
+                </div>
+            </div>
+            <!---Section 15-->
+            <div class="text-center">
+                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 15 Series</h2>
+            </div>
+            <br>
+            <section class="py-0 mt-0">
+                <div class="container px-4 px-lg-5 mt-0">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mb-5 col-sm-3">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/15.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 15</h5>
+                                        <!-- Product price-->
+                                        {% if iphone15.1 != 0 %}
+                                        <span class="fw-bold">Desde:
+                                        </span> {{iphone15.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span> 
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-3">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/15plus.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 15 Plus</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone15plus.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span>
+                                        {{iphone15plus.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                        
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-3 ">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/15pro.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 15 Pro</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone15pro.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone15pro.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-3">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/15promax.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 15 Pro Max</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone15promax.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone15promax.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section 14-->
+            <div class="text-center">
+                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 14 Series</h2>
+            </div>
+            <br>
+            <section class="py-0 mt-0">
+                <div class="container px-4 px-lg-5 mt-0">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mb-5 col-sm-3">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/14.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 14</h5>
+                                        <!-- Product price-->
+                                        {% if iphone14.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone14.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-3">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/14plus.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 14 Plus</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        <span class="fw-bold">Desde:</span> {{iphone14plus.1}} Gs
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-3 ">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/14pro.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 14 Pro</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone14pro.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone14pro.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-3">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/14promax.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 14 Pro Max</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone14promax.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone14promax.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section 13-->
+            <div class="text-center">
+                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 13 Series</h2>
+            </div>
+            <br>
+            <section class="py-0 mt-0">
+                <div class="container px-4 px-lg-5 mt-0">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/13.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 13</h5>
+                                        <!-- Product price-->
+                                        {% if iphone13.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone13.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/13pro.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 13 Pro</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone13pro.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone13pro.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/13promax.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 13 Pro Max</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone13promax.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone13promax.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section 12-->
+            <div class="text-center">
+                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 12 Series</h2>
+            </div>
+            <br>
+            <section class="py-0 mt-0">
+                <div class="container px-4 px-lg-5 mt-0">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/12.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 12</h5>
+                                        <!-- Product price-->
+                                        {% if iphone12.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone12.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/12pro.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 12 Pro</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone12pro.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone12pro.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/12promax.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 12 Pro Max</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone12promax.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone12promax.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section 11-->
+            <div class="text-center">
+                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 11 Series</h2>
+            </div>
+            <br>
+            <section class="py-0 mt-0">
+                <div class="container px-4 px-lg-5 mt-0">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/11.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 11</h5>
+                                        <!-- Product price-->
+                                        {% if iphone11.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone11.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/11pro.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 11 Pro</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone11pro.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone11pro.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/12promax.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"> Apple iPhone 11 Pro Max</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone11promax.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone11promax.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section 11-->
+            <div class="text-center">
+                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone X Series y iPhone 8 Series</h2>
+            </div>
+            <br>
+            <section class="py-0 mt-0">
+                <div class="container px-4 px-lg-5 mt-0">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/x.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone X</h5>
+                                        <!-- Product price-->
+                                        {% if iphonex.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphonex.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-5 col-sm-4 ">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="{% static 'img/11pro.jpg'%}" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">Apple iPhone 8 Plus</h5>
+                                        <!-- Product price-->
+                                        <span class="text-muted text-decoration-line-through"></span>
+                                        {% if iphone8.1 != 0 %}
+                                        <span class="fw-bold">Desde:</span> 
+                                            {{iphone8.1}} Gs
+                                        {%else%}
+                                        <span class="fw-bold">No disponible!</span>
+                                        {% endif%}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                </div>
+                            </div>
+                        </div>
+            </section>
+            <!-- Footer-->
+            <footer class="py-5 bg-dark">
+                <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            </footer>
+            <!-- Core theme JS-->
+            <script src="{%static 'js/scripts.js'%}"></script>
+    {%endblock%}
+
+</body>
+</html>
