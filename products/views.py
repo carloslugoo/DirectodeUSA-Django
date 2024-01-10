@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from seaching.seach import buscar_producto_por_vendedor
-
+import re
 #Variables de precios:
 #aux
 aux = []
@@ -52,6 +52,7 @@ def index(request):
     buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone14, iphone14plus, iphone14pro, iphone14promax)
     product_name = 'Apple iPhone 15'
     buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone15, iphone15plus, iphone15pro, iphone15promax)
+    print(iphone15pro)
     
     return render(request, 'home.html', {
         'iphone8': iphone8plus[0],
@@ -76,4 +77,9 @@ def index(request):
     })
     
 def test(request):
-    return render(request, 'test.html')
+    product_name = 'Apple iPhone 8 Plus'
+    buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone8plus, aux, aux, aux)
+    print()
+    return render(request, 'test.html', {
+        'iphone8': iphone8plus,
+        })

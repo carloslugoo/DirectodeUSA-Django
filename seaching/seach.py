@@ -2,15 +2,42 @@
 from ebaysdk.finding import Connection
 import requests
 from bs4 import BeautifulSoup
+import re
 
-#Cotizacion del dia del dolar:
-r = requests.get('https://www.cambioschaco.com.py') #Url de donde obtener los datos
-soup = BeautifulSoup(r.text, 'html.parser')
-cotizacion = soup.find_all('span', class_="sale", limit = 1) #Dolar
-#print(cotizacion[0].text.replace('.', ""))
-dolar = float(cotizacion[0].text.replace('.', ""))
+try:
+    #Cotizacion del dia del dolar:
+    r = requests.get('https://www.cambioschaco.com.py') #Url de donde obtener los datos
+    soup = BeautifulSoup(r.text, 'html.parser')
+    cotizacion = soup.find_all('span', class_="sale", limit = 1) #Dolar
+    #print(cotizacion[0].text.replace('.', ""))
+    dolar = float(cotizacion[0].text.replace('.', ""))
+except:
+    dolar = 7370
 
 
+# Expresión regular para extraer la capacidad
+pattern = r'(\d+)GB'
+    
+def ordenar_modelo(modelo):
+    if not modelo:
+        modelo.append(["Sin existencias!..",  0])
+    else:
+        # Expresión regular para extraer la capacidad
+        pattern = r'(\d+)GB'
+
+        # Función para obtener la capacidad
+        def obtener_capacidad(nombre):
+            match = re.search(pattern, nombre)
+            print(match)
+            if match:
+                return int(match.group(1))
+            elif '1TB' in nombre:
+                return 1000  # Asignar un valor grande para "1TB" para que vaya al final
+            return 0
+
+        modelo = sorted(modelo, key=lambda x: obtener_capacidad(x[0]))
+
+    return modelo
 
 #Funcion de cambiar a guaranies con puntos y todo el chiche
 def pre_puntos(precio):
@@ -52,38 +79,37 @@ def buscar_producto_por_vendedor(app_id, seller_username, product_name, modelo1,
     for item in items:
         title = item.title
         price_value = pre_puntos(str(int(float(item.sellingStatus.currentPrice.value) * dolar)+ 450000))
+        # Buscar la capacidad en el título original
+        capacidades = ['64GB','128GB', '1TB', '256GB', '512GB']
+        capacidad = next((capacidad for capacidad in capacidades if capacidad in title), None)
         if item.condition.conditionId == '2020': 
             if product_name in title and not "Locked" in title:
                 #print(f"Nombre del artículo: {title}, Precio: {price_value} {currency}")
                 if product_name in ["Apple iPhone 11", "Apple iPhone 12", "Apple iPhone 13"]:
                     if product_name + " Pro" in title and not product_name + " Pro Max" in title:
-                        modelo2.append([title, price_value])
+                        modelo2.append([title, price_value, capacidad])
                     elif product_name + " Pro Max" in title:
-                        modelo3.append([title, price_value])
+                        modelo3.append([title, price_value, capacidad])
                     elif product_name in title and not product_name + " mini" in title:
-                        modelo1.append([title, price_value])
+                        modelo1.append([title, price_value, capacidad])
                 elif product_name in ["Apple iPhone 14", "Apple iPhone 15"]:
                     #print(f"Nombre del artículo: {title}, Precio: {price_value} {currency}")
                     if product_name + " Pro" in title and not product_name + " Pro Max" in title:
-                        modelo3.append([title, price_value])
+                        modelo3.append([title, price_value, capacidad])
                     elif product_name + " Pro Max" in title:
-                        modelo4.append([title, price_value])
+                        modelo4.append([title, price_value, capacidad])
                     elif product_name + " Plus" in title:
-                        modelo2.append([title, price_value])
+                        modelo2.append([title, price_value, capacidad])
                     elif product_name in title and not product_name + " Pro Max" in title and not product_name + " Pro" in title and not product_name + " Plus" in title:
-                        modelo1.append([title, price_value])
+                        modelo1.append([title, price_value, capacidad])
                 elif product_name in ["Apple iPhone 8 Plus"]:
-                    modelo1.append([title, price_value])
+                    modelo1.append([title, price_value, capacidad])
                 elif product_name in ["Apple iPhone X"]:
                     if "Apple iPhone X" in title:
-                        modelo1.append([title, price_value])
-    if not modelo1:
-        modelo1.append(["Sin existencias!..",  0])
-    if not modelo2:
-        modelo2.append(["Sin existencias!..",  0])
-    if not modelo3:
-        modelo2.append(["Sin existencias!..",  0])
-    if not modelo2:
-        modelo2.append(["Sin existencias!..",  0])    
-
+                        modelo1.append([title, price_value, capacidad])
+    # Llamadas a la función para ordenar los modelos
+    modelo1 = ordenar_modelo(modelo1)
+    modelo2 = ordenar_modelo(modelo2)
+    modelo3 = ordenar_modelo(modelo3)
+    modelo4 = ordenar_modelo(modelo4)
 

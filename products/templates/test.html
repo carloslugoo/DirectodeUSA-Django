@@ -81,9 +81,22 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder">Apple iPhone 15</h5>
+                                        <h5 class="fw-bolder ">Apple iPhone 15</h5>
                                         <!-- Product price-->
-                                        <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                        <br>
+                                        <div class="text-start">
+                                            <hr class="my-0">
+                                        <ul class="list-group list-group-flush">
+                                            <span class="">Capacidad de almacenamiento:</span>
+                                            <ul>
+                                                <li>128 Gb</li>
+                                                <li>256 Gb</li>
+                                            </ul>
+                                        </ul>
+                                            <hr class="my-0">
+                                        </div>
+                                            <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -100,11 +113,20 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder">Apple iPhone 15 Plus</h5>
-                                        <!-- Product price-->
+                                        <h5 class="fw-bolder card-title">Apple iPhone 15 Plus</h5>
+                                    </div>
+                                    <br>
+                                    <div class="text-start">
+                                        <span>Capacidad de almacenamiento:</span>
+                                        <ul>
+                                            <li>128 Gb</li>
+                                            <li>256 Gb</li>
+                                        </ul>
                                         <span class="text-muted text-decoration-line-through"></span>
                                         <span class="fw-bold">Desde:</span> 2.500.000 Gs
                                     </div>
+                                        <!-- Product price-->
+                                        
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -123,8 +145,17 @@
                                         <!-- Product name-->
                                         <h5 class="fw-bolder"> Apple iPhone 15 Pro</h5>
                                         <!-- Product price-->
-                                        <span class="text-muted text-decoration-line-through"></span>
-                                        <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                        <br>
+                                        <div class="text-start">
+                                            <span>Capacidad de almacenamiento:</span>
+                                            <ul>
+                                                <li>128 Gb</li>
+                                                <li>256 Gb</li>
+                                            </ul>
+                                            <span class="text-muted text-decoration-line-through"></span>
+                                            <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -145,7 +176,15 @@
                                         <h5 class="fw-bolder"> Apple iPhone 15 Pro Max</h5>
                                         <!-- Product price-->
                                         <span class="text-muted text-decoration-line-through"></span>
-                                        <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                        <div class="text-start">
+                                            <span>Capacidad de almacenamiento:</span>
+                                            <ul>
+                                                <li>128 Gb</li>
+                                                <li>256 Gb</li>
+                                            </ul>
+                                        </div>
+                                            <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                     
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -476,7 +515,7 @@
                         <div class="col-12 mb-5 col-sm-4 ">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="{% static 'img/x.jpg'%}" alt="..." />
+                                <img class="card-img-top" src="{% static 'img/x.jpg'%}" alt="..."/>
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -503,7 +542,7 @@
                                         <h5 class="fw-bolder">Apple iPhone 8 Plus</h5>
                                         <!-- Product price-->
                                         <span class="text-muted text-decoration-line-through"></span>
-                                        <span class="fw-bold">Desde:</span> 2.500.000 Gs
+                                        <span class="fw-bold">Desde:</span> {{iphone8.0.1}}
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -516,8 +555,8 @@
     <!-- Footer -->
     <footer class="bg-white text-center">
         <div class="container">
-            <div class="row">
-                <div class="mb-4 col-12 col-sm-4 align-self-center">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="mb-4 col-12 col-sm-4">
                     <!-- Instagram -->
                     <a data-mdb-ripple-init class="btn btn-outline btn-floating " href="#!" role="button">
                         <i class="bi bi-instagram fw-bold custom-font"></i> directodeusa.py
@@ -527,13 +566,10 @@
                         <i class="bi bi-whatsapp fw-bold custom-font"></i> +595985110487
                     </a>         
                 </div>
-                <div class="mb-4 col-6 col-sm-4 align-self-center">
+                <div class="mb-4 col-6 col-sm-4">
                     <p class="text-reset">
                         <i class="bi bi-geo-alt-fill custom-font"></i> <span class="">Encarnación, Paraguay</span>
                     </p>
-                </div>
-                <div class="mb-4 col-6 col-sm-4 align-self-center">
-                    <img src="{%static 'assets/logoo.png'%}" width="90px" class="d-block img-fluid">
                 </div>
             </div>
         </div>
