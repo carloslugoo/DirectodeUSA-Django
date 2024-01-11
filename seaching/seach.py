@@ -28,7 +28,6 @@ def ordenar_modelo(modelo):
         # Función para obtener la capacidad
         def obtener_capacidad(nombre):
             match = re.search(pattern, nombre)
-            print(match)
             if match:
                 return int(match.group(1))
             elif '1TB' in nombre:
@@ -57,6 +56,12 @@ def pre_puntos(precio):
 
 #Funcion de buscar productos
 def buscar_producto_por_vendedor(app_id, seller_username, product_name, modelo1, modelo2, modelo3, modelo4):
+    
+    modelo1.clear()
+    modelo2.clear()
+    modelo3.clear()
+    modelo4.clear()
+    
     api = Connection(appid=app_id, config_file=None)
 
     request_data = {

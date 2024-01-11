@@ -52,28 +52,28 @@ def index(request):
     buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone14, iphone14plus, iphone14pro, iphone14promax)
     product_name = 'Apple iPhone 15'
     buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone15, iphone15plus, iphone15pro, iphone15promax)
-    print(iphone15pro)
+    #print(iphone15pro)
     
     return render(request, 'home.html', {
-        'iphone8': iphone8plus[0],
-        'iphonex': iphonex[0],
-        'iphone11': iphone11[0],
-        'iphone11pro': iphone11pro[0],
-        'iphone11promax': iphone11promax[0],
-        'iphone12': iphone12[0],
-        'iphone12pro': iphone12pro[0],
-        'iphone12promax': iphone12promax[0],
-        'iphone13': iphone13[0],
-        'iphone13pro': iphone13pro[0],
-        'iphone13promax': iphone13promax[0],
-        'iphone14': iphone14[0],
-        'iphone14pro': iphone14pro[0],
-        'iphone14plus': iphone14plus[0],
-        'iphone14promax': iphone14promax[0],
-        'iphone15': iphone15[0],
-        'iphone15pro': iphone15pro[0],
-        'iphone15plus': iphone15plus[0],
-        'iphone15promax': iphone15promax[0],
+        'iphone8': iphone8plus,
+        'iphonex': iphonex,
+        'iphone11': iphone11,
+        'iphone11pro': iphone11pro,
+        'iphone11promax': iphone11promax,
+        'iphone12': iphone12,
+        'iphone12pro': iphone12pro,
+        'iphone12promax': iphone12promax,
+        'iphone13': iphone13,
+        'iphone13pro': iphone13pro,
+        'iphone13promax': iphone13promax,
+        'iphone14': iphone14,
+        'iphone14pro': iphone14pro,
+        'iphone14plus': iphone14plus,
+        'iphone14promax': iphone14promax,
+        'iphone15': iphone15,
+        'iphone15pro': iphone15pro,
+        'iphone15plus': iphone15plus,
+        'iphone15promax': iphone15promax,
     })
     
 def test(request):
