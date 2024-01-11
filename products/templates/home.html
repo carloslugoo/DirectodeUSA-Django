@@ -38,33 +38,6 @@
             margin-right: auto;
         }
     </style>
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <div class="container px-4 px-lg-1"> 
-                    <a class="navbar-brand" href="#!">
-                        <img src="{%static 'assets/logoo.png'%}" width="90px">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-4">
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">iPhones</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="#!">En stock</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                    <li><hr class="dropdown-divider" /></li>
-                                    <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                    <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            
             <!-- Header-->
             <div class="container col-xxl-8 px-4 py-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -101,7 +74,7 @@
                                 </div>
                                 <!-- Product actions -->
                                 <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 15'%}">Ver producto</a></div>
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
@@ -124,7 +97,7 @@
                                 </div>
                                 <!-- Product actions -->
                                 <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 15 Plus'%}">Ver producto</a></div>
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
@@ -149,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 15 Pro'%}">Ver producto</a></div>
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
@@ -173,14 +146,13 @@
                                     </div>
                                 </div>
                                 <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 15 Pro Max'%}">Ver producto</a></div>
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
                                 {% endif %}
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -315,7 +287,7 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 13'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
@@ -339,7 +311,7 @@
                                     </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 13 Pro'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
@@ -364,7 +336,7 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 13 Pro Max'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
@@ -602,32 +574,6 @@
                             </div>
                         </div>
             </section>
-                <!-- Footer -->
-                <footer class="bg-white text-center">
-                    <div class="container">
-                        <div class="row d-flex justify-content-center align-items-center">
-                            <div class="mb-4 col-12 col-sm-4">
-                                <!-- Instagram -->
-                                <a data-mdb-ripple-init class="btn btn-outline btn-floating " href="#!" role="button">
-                                    <i class="bi bi-instagram fw-bold custom-font"></i> directodeusa.py
-                                </a>
-                                <!-- WSP -->
-                                <a data-mdb-ripple-init class="btn btn-outline btn-floating" href="#!" role="button">
-                                    <i class="bi bi-whatsapp fw-bold custom-font"></i> +595985110487
-                                </a>         
-                            </div>
-                            <div class="mb-4 col-6 col-sm-4">
-                                <p class="text-reset">
-                                    <i class="bi bi-geo-alt-fill custom-font"></i> <span class="">Encarnación, Paraguay</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                
-                <!-- Footer -->
-                <!-- Footer -->
-            <!-- Core theme JS-->
             <script src="{%static 'js/scripts.js'%}"></script>
     {%endblock%}
 

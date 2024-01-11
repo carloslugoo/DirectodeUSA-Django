@@ -75,11 +75,41 @@ def index(request):
         'iphone15plus': iphone15plus,
         'iphone15promax': iphone15promax,
     })
-    
-def test(request):
-    product_name = 'Apple iPhone 8 Plus'
-    buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone8plus, aux, aux, aux)
-    print()
-    return render(request, 'test.html', {
-        'iphone8': iphone8plus,
-        })
+
+
+def verproducto(request, producto):
+    print(producto)
+    ##product view
+    iphone = []
+    iphoneplus = []
+    iphonepro = []
+    iphonepromax = []
+    #Obtener modelo para busqueda 
+    match = re.search(r'\d+', producto)
+    if match:
+        # Obtener la posición del número
+        posicion_numero = match.start()
+        # Obtener la parte de la cadena hasta el número
+        buscar = producto[:posicion_numero + len(match.group())].strip()
+        modelo = producto[posicion_numero + len(match.group()):].strip()
+        print(buscar)
+    buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphoneplus, iphonepro, iphonepromax)
+    #Comprobar tipo de modelo
+    if " Pro" in producto and not " Pro Max" in producto:
+        print("es pro")
+        data = iphonepro
+    elif "Plus" in producto:
+        print("es plus")
+        data = iphoneplus
+    elif " Pro" in producto:
+        print("Es pro max")
+        data = iphonepromax
+    else:
+        print("normal")
+        data = iphone
+    print(data)
+    return render(request, 'productview.html', {
+        'producto': producto,
+        'data': data,
+        'modelo': modelo,
+    })
