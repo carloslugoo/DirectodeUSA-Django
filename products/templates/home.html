@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%}Directo de USA {%endblock%}</title>
     <link rel="stylesheet" href="{%static './css/home.css'%}">
-<body>
     {%block content%}
     <style>
         .custom-font {
@@ -51,9 +50,11 @@
             </div>
             <!-- Section 15 -->
             <div class="text-center">
-                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 15 Series</h2>
+                <h2 class="pb-2 border-bottom mx-auto mb-2 custom-line">iPhone 15 Series</h2>  
             </div>
-            <br>
+            <div class="text-center mb-2">
+                <span>Los iPhones más recientes y los mejores del mercado.</span>
+            </div>
 
             <section class="py-0 mt-0">
                 <div class="container px-4 px-lg-5 mt-0">
@@ -78,6 +79,8 @@
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>
@@ -101,6 +104,8 @@
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>
@@ -126,6 +131,8 @@
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>
@@ -150,6 +157,8 @@
                                 </div>
                                 {% else %}
                                     <span class="fw-bold">No disponible!</span>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>
@@ -157,9 +166,11 @@
                 </div>
             </section>
             <div class="text-center">
-                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 14 Series</h2>
+                <h2 class="pb-2 border-bottom mx-auto mb-2 custom-line">iPhone 14 Series</h2>
             </div>
-            <br>
+            <div class="text-center mb-2">
+                <span>Más pantalla, más potencia y más opciones con la serie iPhone 14.</span>
+            </div>
             <section class="py-0 mt-0">
                 <div class="container px-4 px-lg-5 mt-0">
                     <div class="row justify-content-center">
@@ -178,10 +189,12 @@
                                             </div>
                                 </div>
                                             <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 14'%}">Ver producto</a></div>
                                             </div>
                                         {% else %}
                                             <span class="fw-bold">No disponible!</span>
+                                                </div>
+                                            </div>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -202,10 +215,12 @@
                                         </div>
                                         </div>
                                             <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 14 Plus'%}">Ver producto</a></div>
                                             </div>
                                         {% else %}
                                             <span class="fw-bold">No disponible!</span>
+                                                </div>
+                                            </div>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -227,10 +242,12 @@
                                         </div>
                                     </div>
                                             <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 14 Pro'%}">Ver producto</a></div>
                                             </div>
                                         {% else %}
                                             <span class="fw-bold">No disponible!</span>
+                                                </div>
+                                            </div>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -252,10 +269,12 @@
                                             </div>
                                         </div>
                                             <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 14 Pro Max'%}">Ver producto</a></div>
                                             </div>
                                         {% else %}
                                             <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -264,9 +283,11 @@
             </section>
             <!--Section 13-->            
             <div class="text-center">
-                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 13 Series</h2>
+                <h2 class="pb-2 border-bottom mx-auto mb-2 custom-line">iPhone 13 Series</h2>
             </div>
-            <br>
+            <div class="text-center mb-2">
+                <span>No hay nada mejor que la serie iPhone 13 en cuanto a potencia, velocidad y estilo.</span>
+            </div>
             <section class="py-0 mt-0">
                 <div class="container px-4 px-lg-5 mt-0">
                     <div class="row justify-content-center">
@@ -291,6 +312,8 @@
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -315,6 +338,8 @@
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -340,6 +365,8 @@
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -349,9 +376,11 @@
             </section>
             <!-- Section 12-->
             <div class="text-center">
-                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 12 Series</h2>
+                <h2 class="pb-2 border-bottom mx-auto mb-2 custom-line">iPhone 12 Series</h2>
             </div>
-            <br>
+            <div class="text-center mb-2">
+                <span>La misma apariencia que los últimos modelos, pero por menos.</span>
+            </div>
             <section class="py-0 mt-0">
                 <div class="container px-4 px-lg-5 mt-0">
                     <div class="row justify-content-center">
@@ -372,10 +401,12 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 12'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -396,10 +427,12 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 12 Pro'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -421,10 +454,12 @@
                                     </div>
                                             <!-- Product actions-->
                                             <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 12 Pro Max'%}">Ver producto</a></div>
                                             </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -433,9 +468,11 @@
             </section>
             <!-- Section 11-->
             <div class="text-center">
-                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone 11 Series</h2>
+                <h2 class="pb-2 border-bottom mx-auto mb-2 custom-line">iPhone 11 Series</h2>
             </div>
-            <br>
+            <div class="text-center mb-2">
+                <span>iPhones baratos que siguen siendo modernos.</span>
+            </div>
             <section class="py-0 mt-0">
                 <div class="container px-4 px-lg-5 mt-0">
                     <div class="row justify-content-center">
@@ -456,10 +493,12 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 11'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -480,10 +519,12 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 11 Pro'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -491,7 +532,7 @@
                             <div class="card h-100">
                                 <!-- Sale badge-->
                                 <!-- Product image-->
-                                <img class="card-img-top" src="{% static 'img/12promax.jpg'%}" alt="..." />
+                                <img class="card-img-top" src="{% static 'img/11promax.jpg'%}" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body">
                                     <div class="text-center">
@@ -505,7 +546,7 @@
                                         </div>
                                             <!-- Product actions-->
                                             <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 11 Pro Max'%}">Ver producto</a></div>
                                             </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
@@ -517,9 +558,11 @@
             </section>
             <!-- Section 11-->
             <div class="text-center">
-                <h2 class="pb-2 border-bottom mx-auto custom-line">iPhone X Series y iPhone 8 Series</h2>
+                <h2 class="pb-2 border-bottom mx-auto mb-2 custom-line">iPhone X Series y iPhone 8 Series</h2>
             </div>
-            <br>
+            <div class="text-center mb-2">
+                <span>Teléfonos perfectos para compradores de iPhone por primera vez.</span>
+            </div>
             <section class="py-0 mt-0">
                 <div class="container px-4 px-lg-5 mt-0">
                     <div class="row justify-content-center">
@@ -540,10 +583,12 @@
                                         </div>
                                         <!-- Product actions-->
                                         <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone X'%}">Ver producto</a></div>
                                         </div>
                                         {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>
@@ -564,10 +609,12 @@
                                         </div>
                                                 <!-- Product actions-->
                                                 <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver producto</a></div>
+                                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'verproducto' 'Apple iPhone 8'%}">Ver producto</a></div>
                                                 </div>
                                             {%else%}
                                         <span class="fw-bold">No disponible!</span>
+                                            </div>
+                                        </div>
                                         {% endif%}
                                     </div>
                                 </div>

@@ -77,39 +77,42 @@ def index(request):
     })
 
 
+##product view
+iphone = []
+iphoneplus = []
+iphonepro = []
+iphonepromax = []
+
+def comp_modelo(producto):    #Comprobar tipo de modelo
+    if " Pro" in producto and not " Pro Max" in producto:
+        return iphonepro
+    elif "Plus" in producto:
+        return iphoneplus
+    elif " Pro" in producto:
+        return iphonepromax
+    else:
+        return iphone
+
+
 def verproducto(request, producto):
     print(producto)
-    ##product view
-    iphone = []
-    iphoneplus = []
-    iphonepro = []
-    iphonepromax = []
     #Obtener modelo para busqueda 
     match = re.search(r'\d+', producto)
     if match:
         # Obtener la posición del número
         posicion_numero = match.start()
         # Obtener la parte de la cadena hasta el número
+        num = match.group()
         buscar = producto[:posicion_numero + len(match.group())].strip()
         modelo = producto[posicion_numero + len(match.group()):].strip()
         print(buscar)
     buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphoneplus, iphonepro, iphonepromax)
-    #Comprobar tipo de modelo
-    if " Pro" in producto and not " Pro Max" in producto:
-        print("es pro")
-        data = iphonepro
-    elif "Plus" in producto:
-        print("es plus")
-        data = iphoneplus
-    elif " Pro" in producto:
-        print("Es pro max")
-        data = iphonepromax
-    else:
-        print("normal")
-        data = iphone
-    print(data)
+    data = comp_modelo(producto)
+    #colores = colores_modelo(buscar, modelo)
+    print(buscar, modelo)
     return render(request, 'productview.html', {
         'producto': producto,
         'data': data,
-        'modelo': modelo,
+        'modelo': modelo.lower(),
+        'num': num,
     })

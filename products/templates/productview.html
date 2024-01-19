@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title%}Product View {%endblock%}</title>
+    <title>{% block title%}{{producto}}{%endblock%}</title>
     <link rel="stylesheet" href="{%static './css/product.css'%}">
 <body>
     {%block content%}
@@ -40,14 +40,14 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{% static 'img/' %}{{ num }}{{ modelo }}.jpg" alt="..." /></div>
                     <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder custom-font">{{producto}}</h1>
-                        {% if modelo == 'Pro' %}
+                        <h1 class="display-5 fw-bolder custom-font border-bottom">{{producto}}</h1>
+                        {% if modelo == 'pro' %}
                             <p class="lead">Cámaras y pantallas de calidad profesional.</p>
-                        {% elif modelo == 'Plus' %}
+                        {% elif modelo == 'plus' %}
                             <p class="lead">Descubre la versión Plus con características mejoradas.</p>
-                        {% elif modelo == 'Pro Max' %}
+                        {% elif modelo == 'pro max' %}
                             <p class="lead">Experimenta la potencia y calidad de la versión Pro Max.</p>
                         {% else %}
                             <p class="lead">Explora la versión estándar con funciones esenciales.</p>
@@ -55,10 +55,9 @@
                         <div class="mb-3">
                             <span class="lead">Capacidad de memoria: </span>
                             <select class="form-select me-3"  aria-label="Default select example"  type="num" value="1" style="max-width: 15rem" >
-                                <option selected  id="inputQuantity">Almacenamiento</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                {% for gb in data%}
+                                <option value="{{gb.2}}">{{gb.2}}</option>
+                                {%endfor%}
                             </select>
                         </div>
                         <div class="mb-3">
