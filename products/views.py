@@ -53,7 +53,7 @@ def index(request):
     product_name = 'Apple iPhone 15'
     buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone15, iphone15plus, iphone15pro, iphone15promax)
     #print(iphone15pro)
-    
+    print(iphone8plus)
     return render(request, 'home.html', {
         'iphone8': iphone8plus,
         'iphonex': iphonex,
@@ -83,21 +83,21 @@ iphoneplus = []
 iphonepro = []
 iphonepromax = []
 
-def comp_modelo(producto):    #Comprobar tipo de modelo
+def comp_modelo(producto): #Comprobar tipo de modelo
     if " Pro" in producto and not " Pro Max" in producto:
         return iphonepro
     elif "Plus" in producto:
         return iphoneplus
-    elif " Pro" in producto:
+    elif " Pro Max" in producto:
         return iphonepromax
     else:
         return iphone
-
 
 def verproducto(request, producto):
     print(producto)
     #Obtener modelo para busqueda 
     match = re.search(r'\d+', producto)
+    
     if match:
         # Obtener la posición del número
         posicion_numero = match.start()
@@ -105,11 +105,20 @@ def verproducto(request, producto):
         num = match.group()
         buscar = producto[:posicion_numero + len(match.group())].strip()
         modelo = producto[posicion_numero + len(match.group()):].strip()
+        if producto == "Apple iPhone 8 Plus":
+            buscar = producto
         print(buscar)
-    buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphoneplus, iphonepro, iphonepromax)
-    data = comp_modelo(producto)
-    #colores = colores_modelo(buscar, modelo)
-    print(buscar, modelo)
+        print(num, modelo)
+    num = int(num)
+    if num == 11 or num == 12 or num == 13:
+        buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphonepro, iphonepromax, aux)
+    elif num == 14 or num == 15:
+        buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphoneplus, iphonepro, iphonepromax)
+    if producto == "Apple iPhone 8 Plus":
+        data = iphone
+    else:
+        data = comp_modelo(producto)
+    print(data)
     return render(request, 'productview.html', {
         'producto': producto,
         'data': data,

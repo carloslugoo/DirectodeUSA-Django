@@ -6,37 +6,20 @@ import re
 
 try:
     #Cotizacion del dia del dolar:
-    r = requests.get('https://www.cambioschaco.com.py') #Url de donde obtener los datos
+    r = requests.get('https://www.familiar.com.py/p-servicios-cambios') #Url de donde obtener los datos
     soup = BeautifulSoup(r.text, 'html.parser')
-    cotizacion = soup.find_all('span', class_="sale", limit = 1) #Dolar
-    #print(cotizacion[0].text.replace('.', ""))
-    dolar = float(cotizacion[0].text.replace('.', ""))
+    #Buscar el contenedor principal
+    cotizacion_container = soup.find('div', class_='col-md-3 col-sm-3 col-xs-6 box-cotizacion')
+    venta_tag = cotizacion_container.find_all('p')
+    print(venta_tag)
+    venta_value = venta_tag[3].text.strip()
+    dolar = float(venta_value.replace('.', ''))
 except:
     dolar = 7370
-
+print("Dolar hoy: ", dolar)
 
 # Expresión regular para extraer la capacidad
 pattern = r'(\d+)GB'
-    
-def ordenar_modelo(modelo):
-    if not modelo:
-        modelo.append(["Sin existencias!..",  0])
-    else:
-        # Expresión regular para extraer la capacidad
-        pattern = r'(\d+)GB'
-
-        # Función para obtener la capacidad
-        def obtener_capacidad(nombre):
-            match = re.search(pattern, nombre)
-            if match:
-                return int(match.group(1))
-            elif '1TB' in nombre:
-                return 1000  # Asignar un valor grande para "1TB" para que vaya al final
-            return 0
-
-        modelo = sorted(modelo, key=lambda x: obtener_capacidad(x[0]))
-
-    return modelo
 
 #Funcion de cambiar a guaranies con puntos y todo el chiche
 def pre_puntos(precio):
@@ -83,7 +66,7 @@ def buscar_producto_por_vendedor(app_id, seller_username, product_name, modelo1,
     # Manejar la respuesta según tus necesidades
     for item in items:
         title = item.title
-        price_value = pre_puntos(str(int(float(item.sellingStatus.currentPrice.value) * dolar)+ 450000))
+        price_value = pre_puntos(str(int(float(item.sellingStatus.currentPrice.value) * dolar)+ 540000))
         # Buscar la capacidad en el título original
         capacidades = ['64GB','128GB', '1TB', '256GB', '512GB']
         capacidad = next((capacidad for capacidad in capacidades if capacidad in title), None)
@@ -112,9 +95,17 @@ def buscar_producto_por_vendedor(app_id, seller_username, product_name, modelo1,
                 elif product_name in ["Apple iPhone X"]:
                     if "Apple iPhone X" in title:
                         modelo1.append([title, price_value, capacidad])
-    # Llamadas a la función para ordenar los modelos
-    modelo1 = ordenar_modelo(modelo1)
-    modelo2 = ordenar_modelo(modelo2)
-    modelo3 = ordenar_modelo(modelo3)
-    modelo4 = ordenar_modelo(modelo4)
-
+                        
+    #Ordenar las listas dentro de la función
+    modelo1.sort(key=lambda x: capacidades.index(x[2]) if x[2] in capacidades else float('inf'))
+    modelo2.sort(key=lambda x: capacidades.index(x[2]) if x[2] in capacidades else float('inf'))
+    modelo3.sort(key=lambda x: capacidades.index(x[2]) if x[2] in capacidades else float('inf'))
+    modelo4.sort(key=lambda x: capacidades.index(x[2]) if x[2] in capacidades else float('inf'))
+    if not modelo1:
+        modelo1.append(["Sin existencias!..", 0])
+    elif not modelo2:
+        modelo2.append(["Sin existencias!..", 0])
+    elif not modelo3:
+        modelo3.append(["Sin existencias!..", 0])
+    elif not modelo4:
+        modelo4.append(["Sin existencias!..", 0])

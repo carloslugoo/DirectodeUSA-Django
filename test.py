@@ -3,14 +3,20 @@ import requests
 from bs4 import BeautifulSoup
 try: 
     #Cotizacion del dia del dolar:
-    r = requests.get('https://www.cambioschaco.com.py') #Url de donde obtener los datos
+    r = requests.get('https://www.familiar.com.py/p-servicios-cambios') #Url de donde obtener los datos
     soup = BeautifulSoup(r.text, 'html.parser')
-    cotizacion = soup.find_all('span', class_="sale", limit = 1) #Dolar
+    #Buscar el contenedor principal
+    cotizacion_container = soup.find('div', class_='col-md-3 col-sm-3 col-xs-6 box-cotizacion')
+    #print(cotizacion_container)
     #print(cotizacion[0].text.replace('.', ""))
-    dolar = float(cotizacion[0].text.replace('.', ""))
+    venta_tag = cotizacion_container.find_all('p')
+    print(venta_tag)
+    venta_value = venta_tag[3].text.strip()
+    dolar = float(venta_value.replace('.', ''))
 except:
     dolar = 7370
-
+    
+print("Dolar hoy: ", dolar)
 #Funcion de buscar productos
 def buscar_producto_por_vendedor(app_id, seller_username, product_name, modelo1, modelo2, modelo3, modelo4):
     api = Connection(appid=app_id, config_file=None)
