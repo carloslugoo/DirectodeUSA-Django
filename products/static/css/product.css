@@ -1,0 +1,27 @@
+.custom-font {
+    font-family: 'Lumen', sans-serif;
+    background: linear-gradient(90deg, red, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-fill-color: transparent;
+    display: inline-block;
+    }
+    .custom-line{
+    background: linear-gradient(90deg, red, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-fill-color: transparent;
+    display: inline-block;
+    }
+    .card{
+        height: 150px;
+    }
+    .card img{
+        width: 75%;
+        justify-content: center;
+    }
+    .card-img-top{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }

@@ -92,7 +92,41 @@ def comp_modelo(producto): #Comprobar tipo de modelo
         return iphonepromax
     else:
         return iphone
+def colores_disponibles(num, modelo):
+    colores = []
+    if num == 8:
+        colores = ["Rojo", "Oro", "Negro"]
+    elif num == "X":
+        colores = ["Blanco", "Negro"]
+    elif num == 11:
+        if modelo == "Pro" or modelo == "Pro Max":
+            colores = ["Oro", "Negro", "Blanco"]
+        else:
+            colores = ["Rojo", "Negro", "Amarillo", "Blanco", "Violeta"]
+    elif num == 12:
+        if modelo == "Pro" or modelo == "Pro Max":
+            colores = ["Oro", "Negro", "Blanco", "Azul"]
+        else:
+            colores = ["Rojo", "Negro", "Blanco", "Violeta", "Azul"]
+    elif num == 13:
+        if modelo == "Pro" or modelo == "Pro Max":
+            colores = ["Oro", "Negro", "Blanco", "Azul"]
+        else:
+            colores = ["Rojo", "Negro", "Azul", "Blanco"]
+    elif num == 14:
 
+        if modelo == "Pro" or modelo == "Pro Max":
+            
+            colores = ["Oro", "Negro", "Blanco", "Azul"]
+        else:
+            colores = ["Rojo", "Negro", "Amarillo", "Blanco", "Violeta"]
+    elif num == 15:
+        if modelo == "Pro" or modelo == "Pro Max":
+            colores = ["Negro", "Blanco", "Azul"]
+        else:
+            colores = [ "Negro", "Amarillo",  "Rosado", "Verde"]
+    return colores
+    
 def verproducto(request, producto):
     print(producto)
     #Obtener modelo para busqueda 
@@ -109,7 +143,8 @@ def verproducto(request, producto):
             buscar = producto
         print(buscar)
         print(num, modelo)
-    num = int(num)
+    if producto != "Apple iPhone X":
+        num = int(num)
     if num == 11 or num == 12 or num == 13:
         buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphonepro, iphonepromax, aux)
     elif num == 14 or num == 15:
@@ -119,9 +154,12 @@ def verproducto(request, producto):
     else:
         data = comp_modelo(producto)
     print(data)
+    colores = colores_disponibles(num, modelo)
+    print(colores)
     return render(request, 'productview.html', {
         'producto': producto,
         'data': data,
         'modelo': modelo.lower(),
         'num': num,
+        'colores': colores,
     })

@@ -1,7 +1,29 @@
-/*!
-* Start Bootstrap - Shop Homepage v5.0.6 (https://startbootstrap.com/template/shop-homepage)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
+const data = document.currentScript.dataset;
+console.log(data);
+const iphones = data.iphones;
+
+// Convertir el string en un array de JavaScript
+var dataArray = JSON.parse(iphones.replace(/'/g, '"'));
+console.log(dataArray)
+// Obtener elementos del DOM
+var capacitySelect = document.querySelector('#capacitySelect');
+var colorSelect = document.querySelector('#colorSelect');
+
+// Ahora, 'dataFromDjango' es un array de JavaScript con los valores del vector 'data'
+
+// Puedes utilizar 'dataFromDjango' en tu código JavaScript
+
+// Escuchar cambios en la capacidad
+capacitySelect.addEventListener('change', function() {
+    var selectedCapacity = capacitySelect.value - 1;
+    console.log('Capacidad seleccionada:', selectedCapacity);
+    // Actualizar el precio en el DOM
+    priceSpan.textContent = dataArray[selectedCapacity][1] + " Gs";
+
+});
+
+// Escuchar cambios en el color
+colorSelect.addEventListener('change', function() {
+    var selectedColor = colorSelect.value;
+    console.log('Color seleccionado:', selectedColor);
+});
