@@ -8,8 +8,7 @@ console.log(dataArray)
 // Obtener elementos del DOM
 var capacitySelect = document.querySelector('#capacitySelect');
 var colorSelect = document.querySelector('#colorSelect');
-
-// Ahora, 'dataFromDjango' es un array de JavaScript con los valores del vector 'data'
+//elemento de la imagen por su id
 
 // Puedes utilizar 'dataFromDjango' en tu código JavaScript
 
@@ -23,7 +22,20 @@ capacitySelect.addEventListener('change', function() {
 });
 
 // Escuchar cambios en el color
-colorSelect.addEventListener('change', function() {
-    var selectedColor = colorSelect.value;
-    console.log('Color seleccionado:', selectedColor);
-});
+var imagen = document.getElementById("imagenPerfil");
+const modelo = data.modelo;
+console.log(modelo);
+function cambiarColor(elemento) {
+    // Obtenemos las clases del elemento clicado
+    const clases = elemento.className.split(' ');
+    // Buscamos la segunda clase (índice 1) y la utilizamos como color
+    const color = clases[1];
+    // Utilizar template literals de JavaScript para concatenar las partes de la ruta
+    const rutaImagen = `/static/img/colores/${modelo}/${color}.jpg`;
+    console.log(rutaImagen);
+    // Cambia el atributo src con la nueva ruta de la imagen
+    imagen.src = rutaImagen;
+    // Aquí puedes realizar acciones específicas para cambiar el color seleccionado.
+    console.log('Color seleccionado:', color);
+    // También puedes actualizar el estilo de tus productos u otros elementos según el color seleccionado.
+}

@@ -95,43 +95,42 @@ def comp_modelo(producto): #Comprobar tipo de modelo
 def colores_disponibles(num, modelo):
     colores = []
     if num == 8:
-        colores = ["Rojo", "Oro", "Negro"]
-    elif num == "X":
-        colores = ["Blanco", "Negro"]
+        colores = ["rojo", "oro", "negro"]
+    elif num == 10:
+        colores = ["blanco", "negro"]
     elif num == 11:
         if modelo == "Pro" or modelo == "Pro Max":
-            colores = ["Oro", "Negro", "Blanco"]
+            colores = ["oro", "negro", "blanco"]
         else:
-            colores = ["Rojo", "Negro", "Amarillo", "Blanco", "Violeta"]
+            colores = ["rojo", "negro", "blanco", "violeta"]
     elif num == 12:
         if modelo == "Pro" or modelo == "Pro Max":
-            colores = ["Oro", "Negro", "Blanco", "Azul"]
+            colores = ["oro", "negro", "blanco", "azul"]
         else:
-            colores = ["Rojo", "Negro", "Blanco", "Violeta", "Azul"]
+            colores = ["rojo", "negro", "blanco", "azul"]
     elif num == 13:
         if modelo == "Pro" or modelo == "Pro Max":
-            colores = ["Oro", "Negro", "Blanco", "Azul"]
+            colores = ["oro", "negro", "blanco", "azul"]
         else:
-            colores = ["Rojo", "Negro", "Azul", "Blanco"]
+            colores = ["rojo", "negro", "azul", "nlanco"]
     elif num == 14:
 
         if modelo == "Pro" or modelo == "Pro Max":
             
-            colores = ["Oro", "Negro", "Blanco", "Azul"]
+            colores = ["oro", "negro", "blanco", "azul"]
         else:
-            colores = ["Rojo", "Negro", "Amarillo", "Blanco", "Violeta"]
+            colores = ["rojo", "negro", "amarillo", "blanco"]
     elif num == 15:
         if modelo == "Pro" or modelo == "Pro Max":
-            colores = ["Negro", "Blanco", "Azul"]
+            colores = ["negro", "blanco", "azul"]
         else:
-            colores = [ "Negro", "Amarillo",  "Rosado", "Verde"]
+            colores = [ "negro", "amarillo",  "rosado", "verde"]
     return colores
     
 def verproducto(request, producto):
     print(producto)
     #Obtener modelo para busqueda 
     match = re.search(r'\d+', producto)
-    
     if match:
         # Obtener la posición del número
         posicion_numero = match.start()
@@ -139,22 +138,29 @@ def verproducto(request, producto):
         num = match.group()
         buscar = producto[:posicion_numero + len(match.group())].strip()
         modelo = producto[posicion_numero + len(match.group()):].strip()
-        if producto == "Apple iPhone 8 Plus":
-            buscar = producto
         print(buscar)
         print(num, modelo)
     if producto != "Apple iPhone X":
         num = int(num)
-    if num == 11 or num == 12 or num == 13:
-        buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphonepro, iphonepromax, aux)
-    elif num == 14 or num == 15:
-        buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphoneplus, iphonepro, iphonepromax)
+        if num == 11 or num == 12 or num == 13:
+            buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphonepro, iphonepromax, aux)
+        elif num == 14 or num == 15:
+            buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphoneplus, iphonepro, iphonepromax)
     if producto == "Apple iPhone 8 Plus":
+        buscar = producto
+        buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphonepro, iphonepromax, aux)
+        data = iphone
+    elif producto == "Apple iPhone X":
+        num = 10
+        modelo = ""
+        buscar = producto
+        buscar_producto_por_vendedor(app_id, seller_username, buscar, iphone, iphonepro, iphonepromax, aux)
         data = iphone
     else:
         data = comp_modelo(producto)
-    print(data)
+    print(data, num, modelo)
     colores = colores_disponibles(num, modelo)
+    
     print(colores)
     return render(request, 'productview.html', {
         'producto': producto,

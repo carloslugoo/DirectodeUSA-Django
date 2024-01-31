@@ -11,8 +11,9 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 v mb-md-0" src="{% static 'img/' %}{{ num }}{{ modelo }}.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 v mb-md-0" id="imagenPerfil" src="{% static 'img/' %}{{ num }}{{ modelo }}.webp" alt="..." /></div>
                     <div class="col-md-6">
+                        <span id="modelo" hidden>{{num}}</span>
                         <h1 class="display-5 fw-bolder custom-font border-bottom">{{producto}}</h1>
                         {% if modelo == 'pro' %}
                             <p class="lead">Cámaras y pantallas de calidad profesional.</p>
@@ -34,13 +35,11 @@
                         </div>
                         {% endwith %}
                         <div class="mb-3">
-                            <span class="lead">Color: </span>
-                            <select id="colorSelect" class="form-select me-3" aria-label="Default select example"  type="num" value="1" style="max-width: 15rem" >
-                                <option selected  id="inputQuantity">Seleccione un color</option>
+                            <span class="lead">Colores disponibles: </span>
+                            <br>
                                 {% for color in colores%}
-                                <option value="{{color}}">{{color}}</option>
+                                    <span class="dot {{color}}" onclick="cambiarColor(this)"></span>
                                 {%endfor%}
-                            </select>
                         </div>
                         <div class="fs-5 mb-3">
                             <span class="lead fw-bolder">Precio: </span><span id="priceSpan">{{data.0.1}} Gs</span>
@@ -57,7 +56,8 @@
         </section>
         <script src="{%static 'js/scripts.js' %}"
         defer
-        data-iphones="{{ data }}"></script>
+        data-iphones="{{data}}"
+        data-modelo="{{num}}"></script>
     {%endblock%}
 
 </body>
