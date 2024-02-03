@@ -23,15 +23,16 @@ capacitySelect.addEventListener('change', function() {
 
 // Escuchar cambios en el color
 var imagen = document.getElementById("imagenPerfil");
+const num = data.num;
 const modelo = data.modelo;
-console.log(modelo);
+console.log(num, modelo);
 function cambiarColor(elemento) {
     // Obtenemos las clases del elemento clicado
     const clases = elemento.className.split(' ');
     // Buscamos la segunda clase (índice 1) y la utilizamos como color
     const color = clases[1];
     // Utilizar template literals de JavaScript para concatenar las partes de la ruta
-    const rutaImagen = `/static/img/colores/${modelo}/${color}.jpg`;
+    const rutaImagen = `/static/img/colores/${num}${modelo}/${color}.jpg`;
     console.log(rutaImagen);
     // Cambia el atributo src con la nueva ruta de la imagen
     imagen.src = rutaImagen;

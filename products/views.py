@@ -95,7 +95,7 @@ def comp_modelo(producto): #Comprobar tipo de modelo
 def colores_disponibles(num, modelo):
     colores = []
     if num == 8:
-        colores = ["rojo", "oro", "negro"]
+        colores = ["blanco", "oro", "negro"]
     elif num == 10:
         colores = ["blanco", "negro"]
     elif num == 11:
