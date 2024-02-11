@@ -110,16 +110,16 @@ def colores_disponibles(num, modelo):
             colores = ["rojo", "negro", "blanco", "azul"]
     elif num == 13:
         if modelo == "Pro" or modelo == "Pro Max":
-            colores = ["oro", "negro", "blanco", "azul"]
+            colores = ["oro", "negro", "blanco"]
         else:
-            colores = ["rojo", "negro", "azul", "nlanco"]
+            colores = [ "negro", "azul", "blanco"]
     elif num == 14:
 
         if modelo == "Pro" or modelo == "Pro Max":
             
-            colores = ["oro", "negro", "blanco", "azul"]
+            colores = ["oro", "negro", "blanco"]
         else:
-            colores = ["rojo", "negro", "amarillo", "blanco"]
+            colores = ["rojo", "negro", "blanco", "violeta"]
     elif num == 15:
         if modelo == "Pro" or modelo == "Pro Max":
             colores = ["negro", "blanco", "azul"]
