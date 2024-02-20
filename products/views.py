@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from seaching.seach import buscar_producto_por_vendedor
 import re
+# Importa el modelo
+from products.models import Producto
+from products.models import Actualizacion
+
+from datetime import datetime
+# Obtén la fecha actual
+fecha_actual = datetime.now()
 #Variables de precios:
 #aux
 aux = []
@@ -53,7 +60,8 @@ def index(request):
     product_name = 'Apple iPhone 15'
     buscar_producto_por_vendedor(app_id, seller_username, product_name, iphone15, iphone15plus, iphone15pro, iphone15promax)
     #print(iphone15pro)
-    print(iphone8plus)
+    print(iphone11, iphone11pro, iphone11promax)
+    print(iphone12)
     return render(request, 'home.html', {
         'iphone8': iphone8plus,
         'iphonex': iphonex,
@@ -75,7 +83,6 @@ def index(request):
         'iphone15plus': iphone15plus,
         'iphone15promax': iphone15promax,
     })
-
 
 ##product view
 iphone = []
