@@ -135,6 +135,10 @@ def colores_disponibles(num, modelo):
     return colores
     
 def verproducto(request, producto):
+    
+    from urllib.parse import unquote
+    # Decodificar el nombre del producto
+    producto = unquote(producto)
     print(producto)
     #Obtener modelo para busqueda 
     match = re.search(r'\d+', producto)
