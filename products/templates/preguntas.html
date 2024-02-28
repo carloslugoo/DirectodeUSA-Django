@@ -1,0 +1,77 @@
+{% extends 'layouts/base.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}Directo de USA{%endblock%}</title>
+    {%block content%}
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="col-lg-12 text-center"> <!-- Agregado text-center para centrar el texto -->
+            <h1 class="display-5 text-center border-bottom"><span class="custom-font">Preguntas frecuentes</span></h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-3 mb-4 text-center"> <!-- Cambiado a col-lg-3 para tener columnas de 4 en total -->
+            <i class="bi bi-cash-coin custom-icon custom-font"></i>
+            <p class="lead fw-bold"></span>Pago</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">El pedido se realiza con una seña del 50% del valor del dispositivo, el mismo sera enviado a usted cuando abone la totalidad.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center"> <!-- Cambiado a col-lg-3 para tener columnas de 4 en total -->
+            <i class="bi bi-truck custom-icon custom-font"></i>
+            <p class="lead fw-bold"></span>Envios</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4  text-center d-flex align-items-center">
+            <p class="lead">Una vez realizado tu pedido, el dispositivo llega a Paraguay entre 7 a 15 días.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center"> <!-- Cambiado a col-lg-3 para tener columnas de 4 en total -->
+            <i class="bi bi-geo-alt-fill custom-icon custom-font"></i>
+            <p class="lead fw-bold"></span>Ubicación</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">Somos de Encarnación, recibimos el producto directamente de Estados Unidos.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center">
+            <i class="bi bi-phone custom-icon custom-font"></i>
+            <p class="lead fw-bold">Calidad</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">Recibiras un dispositivo en calidad "como nuevo", por lo tanto, no es un dispositivo totalmente nuevo.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center">
+            <i class="bi bi-battery-full custom-icon custom-font"></i>
+            <p class="lead fw-bold">Batería</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">El dispositivo vendrá con 80% o mas de batería.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center">
+            <i class="bi bi-phone-fill custom-icon custom-font"></i>
+            <p class="lead fw-bold">Condición</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">Está reflejada en nuestras imagenes de Instagram, lo que ves, es lo que recibirás.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center">
+            <i class="bi bi-battery-charging custom-icon custom-font"></i>
+            <p class="lead fw-bold">Cargador</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">Incluimos el cable de carga correspondiente a cada dispositivo dentro del paquete.</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center">
+            <i class="bi bi-emoji-wink-fill custom-icon custom-font"></i>
+            <p class="lead fw-bold">Disfruta!</p>
+        </div>
+        <div class="col-lg-3 col-sm-3 mb-4 text-center d-flex align-items-center">
+            <p class="lead">Disfruta de un dispositivo de excelente calidad por mucho menos! </p>
+        </div>
+    </div>
+</section>
+    <script src="{%static 'js/scripts.js'%}"></script>
+    {%endblock%}
+
+</body>
+</html>

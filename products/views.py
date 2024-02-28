@@ -180,3 +180,7 @@ def verproducto(request, producto):
         'num': num,
         'colores': colores,
     })
+
+def preguntas(request):
+    return render(request, 'preguntas.html')
+    
