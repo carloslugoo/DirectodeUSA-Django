@@ -36,6 +36,7 @@
         cursor: pointer;
         margin-top: 5px;
 }
+
 .rojo{
     background-color: red;
 }
@@ -65,4 +66,10 @@
 }
 .custom-icon {
     font-size: 4em; /* Ajusta el tamaño según tus necesidades */
+}
+.arrow {
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    left: -10px; /* Ajusta la posición según tu diseño */
 }

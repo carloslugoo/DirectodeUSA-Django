@@ -37,10 +37,15 @@
                         <div class="mb-3">
                             <span class="lead">Colores disponibles: </span>
                             <br>
-                                {% for color in colores%}
-                                    <span class="dot {{color}}" onclick="cambiarColor(this)"></span>
-                                {%endfor%}
-                        </div>
+                          
+                            <div class="position-relative">
+                              <img src="{% static 'img/preview.png' %}" width="200px" style="margin-left: 95px;" alt="Flecha de visualización" class="position-absolute top-45 start-5 translate-middle-y rotate-270">
+                              
+                              {% for color in colores %}
+                                <span class="dot {{ color }}" onclick="cambiarColor(this)" onmouseover="cambiarOpacidad(this, 0.7)"></span>
+                              {% endfor %}
+                            </div>
+                          </div>
                         <div class="fs-5 mb-3">
                             <span class="lead fw-bolder">Precio: </span><span id="priceSpan">{{data.0.1}} Gs</span>
                         </div>
